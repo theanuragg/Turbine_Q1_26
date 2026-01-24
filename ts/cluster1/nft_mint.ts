@@ -34,7 +34,7 @@ const mint = generateSigner(umi);
             name: "Rug",
             symbol: "RUG",
             // The URI from the metadata upload step (nft_metadata.ts)
-            uri: "https://gateway.irys.xyz/EFGU3rY1kwheRGVg2yTXDrdmyUtXj3EyFLZaDrwmjLeJ",
+            uri: "https://gateway.irys.xyz/2d7Pb1ZQVMuRfUdy2XrBaiYxmER5ZTDZVrwQkjLWr7wr",
             sellerFeeBasisPoints: percentAmount(5), // 5% royalty
         });
 

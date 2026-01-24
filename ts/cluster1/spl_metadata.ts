@@ -23,7 +23,7 @@ umi.use(signerIdentity(createSignerFromKeypair(umi, keypair)));
 
 // Define our Mint address
 // REPLACE WITH YOUR MINT ADDRESS from spl_init.ts
-const mint = publicKey("8BFw32d7G9uVWGpwVnXviu7NAppK7dyjYT4PzstTfcr2");
+const mint = publicKey("5UzGiUGMp8JU4Vv7ftYsYr3SQadj6h8b9MPLffwVq7eD");
 
 (async () => {
     try {
@@ -51,7 +51,7 @@ const mint = publicKey("8BFw32d7G9uVWGpwVnXviu7NAppK7dyjYT4PzstTfcr2");
 
         // 1. Create the metadata account
         // Uncomment this block if you are creating metadata for the first time
-        /*
+
         let tx = createMetadataAccountV3(
             umi,
             {
@@ -59,19 +59,19 @@ const mint = publicKey("8BFw32d7G9uVWGpwVnXviu7NAppK7dyjYT4PzstTfcr2");
                 ...args
             }
         )
-        */
+
 
         // 2. Update the metadata account
         // Use this block if you want to update existing metadata
-        const metadatapda = findMetadataPda(umi, { mint });
-        const tx = updateMetadataAccountV2(umi, {
-            metadata: metadatapda,
-            data: data,
-            isMutable: true,
-            newUpdateAuthority: null, // Set if you want to change authority
-            primarySaleHappened: null,
-            updateAuthority: signer,
-        });
+        // const metadatapda = findMetadataPda(umi, { mint });
+        // const tx = updateMetadataAccountV2(umi, {
+        //     metadata: metadatapda,
+        //     data: data,
+        //     isMutable: true,
+        //     newUpdateAuthority: null, // Set if you want to change authority
+        //     primarySaleHappened: null,
+        //     updateAuthority: signer,
+        // });
 
         let result = await tx.sendAndConfirm(umi);
         console.log(bs58.encode(result.signature));

@@ -17,7 +17,7 @@ umi.use(signerIdentity(signer));
     try {
         // Load image
         // The image to upload. Ensure 'generug.png' exists in the current directory.
-        const image = await readFile("./generug.png");
+        const image = await readFile("./cluster1/generug.png");
 
         // Convert image to generic file.
         // We transform the buffer into a GenericFile format that Umi understands.

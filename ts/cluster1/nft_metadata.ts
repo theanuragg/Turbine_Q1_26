@@ -18,7 +18,7 @@ umi.use(signerIdentity(signer));
         // https://docs.metaplex.com/programs/token-metadata/changelog/v1.0#json-structure
 
         // The image URI from the previous step (generug.png)
-        const image = "https://gateway.irys.xyz/6XLudjWRLxskcMenynEnV3TovNAA2tDMsRhURGw7s9Jd";
+        const image = "https://gateway.irys.xyz/5yV9yWUGM3NbytBZ22pT5oCV1eM42BMox6GyCsvoztYn";
 
         const metadata = {
             name: "Rug",

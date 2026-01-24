@@ -17,7 +17,7 @@ const connection = new Connection("https://api.devnet.solana.com", commitment);
 
 // Mint address
 // REPLACE WITH YOUR MINT ADDRESS from spl_init.ts
-const mint = new PublicKey("8BFw32d7G9uVWGpwVnXviu7NAppK7dyjYT4PzstTfcr2");
+const mint = new PublicKey("5UzGiUGMp8JU4Vv7ftYsYr3SQadj6h8b9MPLffwVq7eD");
 
 // Recipient address
 const to = new PublicKey("8arJEHJRyKL6mTEE29o1FVdYPrntNbJnLsi8T2bgT7V9");
