@@ -1,0 +1,37 @@
+import wallet from "../turbin3-wallet.json"
+import { createUmi } from "@metaplex-foundation/umi-bundle-defaults"
+import { createGenericFile, createSignerFromKeypair, signerIdentity } from "@metaplex-foundation/umi"
+import { irysUploader } from "@metaplex-foundation/umi-uploader-irys"
+import { readFile } from "fs/promises"
+
+// Create a devnet connection
+const umi = createUmi('https://api.devnet.solana.com');
+
+let keypair = umi.eddsa.createKeypairFromSecretKey(new Uint8Array(wallet));
+const signer = createSignerFromKeypair(umi, keypair);
+
+umi.use(irysUploader({ address: "https://devnet.irys.xyz/" }));
+umi.use(signerIdentity(signer));
+
+(async () => {
+    try {
+        // Load image
+        // The image to upload. Ensure 'generug.png' exists in the current directory.
+        const image = await readFile("./generug.png");
+
+        // Convert image to generic file.
+        // We transform the buffer into a GenericFile format that Umi understands.
+        const file = createGenericFile(image, "generug.png", {
+            contentType: "image/png", // Make sure this matches the file type
+        });
+
+        // Upload image
+        // Upload the file to Irys and get the URI
+        const [myUri] = await umi.uploader.upload([file]);
+
+        console.log("Your image URI: ", myUri);
+    }
+    catch (error) {
+        console.log("Oops.. Something went wrong", error);
+    }
+})();
